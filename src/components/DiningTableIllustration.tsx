@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
+import diningLineart from "@/assets/dining-lineart.jpg";
 
 interface DiningTableIllustrationProps {
   className?: string;
@@ -18,10 +20,10 @@ export function DiningTableIllustration({ className = "" }: DiningTableIllustrat
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
         className="relative w-full overflow-hidden rounded-2xl"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/dining-lineart.jpg"
+        <Image
+          src={diningLineart}
           alt="食卓を囲み、自然につながる人々の繊細な線画イラストレーション"
+          priority
           className="w-full h-auto object-contain mix-blend-multiply opacity-90"
           style={{
             maskImage:
