@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   デザイントークン（温白色 × チャコール × ゴールド）
+   料理・場の空気感を引き立てる、明るくミニマルな配色。
+   ========================================================================== */
+@theme inline {
+  --color-canvas: #fcfcfa;
+  --color-ink: #1a1a1c;
+  --color-gold: #efa00b;
+
+  --font-sans: var(--font-jakarta), var(--font-sans-jp), "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", "Meiryo", system-ui, sans-serif;
+  --font-mincho: var(--font-serif-jp), "Hiragino Mincho ProN", "Yu Mincho",
+    "YuMincho", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* iOS Safari はフォントサイズ 16px 未満の入力にフォーカスすると
+     ページを自動ズームしてしまうため、フォーム要素は 16px 以上に固定する */
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+
+  /* 見出しの改行をなるべく自然な位置に */
+  h1,
+  h2,
+  h3 {
+    text-wrap: pretty;
+  }
+}
+
+/* 明朝（見出し・引用で品位を出す） */
+.font-mincho {
+  font-family: var(--font-serif-jp), "Hiragino Mincho ProN", "Yu Mincho",
+    "YuMincho", serif;
+}
+.font-modern-serif {
+  font-family: var(--font-serif-jp), "Hiragino Mincho ProN", serif;
+}
+.font-sans-jp {
+  font-family: var(--font-jakarta), var(--font-sans-jp), sans-serif;
+}
+
+/* 控えめなスクロールバー */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fcfcfa;
+}
+::-webkit-scrollbar-thumb {
+  background: #e2dfd8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c8c4bc;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
