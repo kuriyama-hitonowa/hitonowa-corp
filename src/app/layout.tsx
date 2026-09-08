@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import { Shippori_Mincho, Noto_Sans_JP, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { site } from "@/config/site";
-import { OrganizationJsonLd } from "@/components/JsonLd";
+import { OrganizationJsonLd } from "@/lib/JsonLd";
 
-const serifJp = Shippori_Mincho({
-  variable: "--font-serif-jp",
+const shippori = Shippori_Mincho({
+  variable: "--font-shippori",
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
 
-const sansJp = Noto_Sans_JP({
-  variable: "--font-sans-jp",
+const notoJp = Noto_Sans_JP({
+  variable: "--font-noto-jp",
   weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
   display: "swap",
@@ -26,7 +26,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.seo.siteUrl),
+  metadataBase: new URL(site.siteUrl),
   title: site.seo.title,
   description: site.seo.description,
   keywords: [...site.seo.keywords],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    siteName: site.brand.legalName,
+    siteName: site.legalName,
     title: site.seo.title,
     description: site.seo.description,
     images: [{ url: site.seo.ogImage }],
@@ -54,9 +54,9 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${serifJp.variable} ${sansJp.variable} ${jakarta.variable}`}
+      className={`${shippori.variable} ${notoJp.variable} ${jakarta.variable}`}
     >
-      <body className="min-h-screen bg-canvas text-ink antialiased">
+      <body>
         <OrganizationJsonLd />
         {children}
       </body>

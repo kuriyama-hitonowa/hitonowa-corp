@@ -1,27 +1,22 @@
 import { site } from "@/config/site";
 
-/**
- * Organization 構造化データ。会社情報は site.ts と同期。
- */
+/** Organization 構造化データ。会社情報は site.ts / CompanySection.tsx と揃える。 */
 export function OrganizationJsonLd() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: site.brand.legalName,
-    alternateName: site.brand.legalNameLatin,
-    url: site.seo.siteUrl,
-    email: site.contact.email,
-    telephone: site.contact.tel,
+    name: site.legalName,
+    alternateName: site.legalNameLatin,
+    url: site.siteUrl,
+    email: site.org.email,
+    telephone: site.org.tel,
     description: site.seo.description,
     address: {
       "@type": "PostalAddress",
-      addressRegion: "東京都",
+      addressRegion: site.org.addressRegion,
       addressCountry: "JP",
     },
-    founder: {
-      "@type": "Person",
-      name: site.representative.name,
-    },
+    founder: { "@type": "Person", name: site.org.representativeName },
     knowsAbout: [
       "法人ケータリング",
       "オードブル",
