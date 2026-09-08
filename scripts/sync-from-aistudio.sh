@@ -60,6 +60,19 @@ echo "▶ App.tsx -> src/app/page.tsx"
 echo "▶ index.css -> src/app/globals.css"
 cp "$ROOT/scripts/patches/globals.css" "$ROOT/src/app/globals.css"
 
+echo "▶ 会社情報の確定値に置換（AI Studio 側が古い値のままの場合の保険）"
+#   AI Studio 側で正しい値に直してあれば、下の sed は何もマッチせず no-op。
+sed -i \
+  -e 's/小川 裕/栗山 元貴/g' \
+  -e 's/Yutaka Ogawa/Motoki Kuriyama/g' \
+  -e 's/y\.ogawa@hitono-wa\.com/info@hitono-wa.com/g' \
+  -e 's/担当の小川より/担当より/g' \
+  -e 's/東京都（キッチンアトリエ・オフィス）/東京都/g' \
+  "$ROOT"/src/components/*.tsx
+#   電話番号（未定）: 表示行・文言を除去
+sed -i '/Tel: 090-3515-3864/d' "$ROOT/src/components/CompanySection.tsx"
+sed -i '/お急ぎの場合はお電話（090-3515-3864）でも承っております。/d' "$ROOT/src/components/ContactSection.tsx"
+
 echo
 echo "✅ 完了。次に:"
 echo "   git diff --stat"

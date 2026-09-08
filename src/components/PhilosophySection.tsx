@@ -49,10 +49,10 @@ export const PhilosophySection: React.FC = () => {
             合同会社ひとのわ 代表社員
           </div>
           <div className="font-mincho text-lg sm:text-xl text-[#1A1A1C] tracking-widest font-normal">
-            小川 裕
+            栗山 元貴
           </div>
           <div className="text-[11px] font-serif text-[#9A9AA2] tracking-widest mt-0.5">
-            Yutaka Ogawa
+            Motoki Kuriyama
           </div>
         </div>
       </div>

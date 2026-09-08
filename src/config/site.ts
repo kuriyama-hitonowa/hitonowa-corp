@@ -32,11 +32,10 @@ export const site = {
     ],
   },
 
-  /** JSON-LD 用（CompanySection.tsx と揃える。★所在地・電話は確定待ち） */
+  /** JSON-LD 用（CompanySection.tsx と揃える。★所在地の詳細・電話は確定待ち） */
   org: {
-    representativeName: "小川 裕",
-    email: "y.ogawa@hitono-wa.com",
-    tel: "090-3515-3864",
+    representativeName: "栗山 元貴",
+    email: "info@hitono-wa.com",
     addressRegion: "東京都",
   },
 } as const;

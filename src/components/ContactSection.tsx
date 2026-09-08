@@ -56,8 +56,7 @@ export const ContactSection: React.FC = () => {
                 お問い合わせを受け付けました
               </h3>
               <p className="text-xs sm:text-sm text-[#66666E] font-sans-jp max-w-md mx-auto leading-relaxed">
-                内容を確認の上、担当の小川より原則2営業日以内にご連絡させていただきます。
-                お急ぎの場合はお電話（090-3515-3864）でも承っております。
+                内容を確認の上、担当より原則2営業日以内にご連絡させていただきます。
               </p>
               <button
                 onClick={() => {

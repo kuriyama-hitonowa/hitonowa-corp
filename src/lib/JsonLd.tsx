@@ -9,7 +9,6 @@ export function OrganizationJsonLd() {
     alternateName: site.legalNameLatin,
     url: site.siteUrl,
     email: site.org.email,
-    telephone: site.org.tel,
     description: site.seo.description,
     address: {
       "@type": "PostalAddress",

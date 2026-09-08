@@ -5,7 +5,7 @@ import React from 'react';
 export const CompanySection: React.FC = () => {
   const companyInfo = [
     { label: '会社名', value: '合同会社ひとのわ（hitonowa LLC）' },
-    { label: '代表者', value: '代表社員　小川 裕（Yutaka Ogawa）' },
+    { label: '代表者', value: '代表社員　栗山 元貴（Motoki Kuriyama）' },
     {
       label: '事業内容',
       value: (
@@ -16,14 +16,13 @@ export const CompanySection: React.FC = () => {
         </ul>
       ),
     },
-    { label: '所在地', value: '東京都（キッチンアトリエ・オフィス）' },
+    { label: '所在地', value: '東京都' },
     { label: '主要取引先', value: '事業会社、IT企業、イベントプロデュース会社、食品メーカー ほか' },
     {
       label: '連絡先',
       value: (
         <div className="space-y-1">
-          <div>Email: y.ogawa@hitono-wa.com</div>
-          <div>Tel: 090-3515-3864</div>
+          <div>Email: info@hitono-wa.com</div>
         </div>
       ),
     },

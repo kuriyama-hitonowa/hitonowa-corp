@@ -25,10 +25,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-        env:
-          # プレビュー中のみ: GitHub Pages のプロジェクトURL（/hitonowa-corp 配下）で配信するため。
-          # 本番ドメイン hitono-wa.com に切り替えるときは、この env と public/CNAME の扱いを戻す。
-          BASE_PATH: /hitonowa-corp
       - uses: actions/configure-pages@v5
         with:
           enablement: true
