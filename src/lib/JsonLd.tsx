@@ -15,7 +15,6 @@ export function OrganizationJsonLd() {
       addressRegion: site.org.addressRegion,
       addressCountry: "JP",
     },
-    founder: { "@type": "Person", name: site.org.representativeName },
     knowsAbout: [
       "法人ケータリング",
       "オードブル",

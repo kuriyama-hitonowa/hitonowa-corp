@@ -39,7 +39,6 @@ export const site = {
 
   /** JSON-LD（Organization）用 */
   org: {
-    representativeName: "栗山 元貴",
     email: "info@hitono-wa.com",
     addressRegion: "東京都",
   },
@@ -53,7 +52,6 @@ export const site = {
    */
   company: {
     legalLine: "合同会社ひとのわ（hitonowa LLC）",
-    representativeLine: "代表社員　栗山 元貴（Motoki Kuriyama）",
     businessLines: [
       "法人向けケータリング及びオードブルの企画・調理・提供",
       "オリジナル食品・加工品・冷凍商品の企画開発・製造",

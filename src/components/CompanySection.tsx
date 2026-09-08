@@ -12,7 +12,6 @@ import { site } from "@/config/site";
 export function CompanySection() {
   const rows: { label: string; value: ReactNode }[] = [
     { label: "会社名", value: site.company.legalLine },
-    { label: "代表者", value: site.company.representativeLine },
     {
       label: "事業内容",
       value: (
