@@ -1,12 +1,17 @@
 /**
  * ============================================================================
- *  SEO・構造化データ用の設定（画面に出る本文は各コンポーネント側が正）
+ *  サイトの設定（SEO・構造化データ・会社概要）
  * ============================================================================
  *
- *  ページの見た目・文言は AI Studio で編集 → `scripts/sync-from-aistudio.sh` で取り込む。
- *  このファイルは <head> のメタ情報と JSON-LD だけを持つ。
- *  会社概要の本文（代表者・所在地・連絡先）は src/components/CompanySection.tsx。
- *  値がずれたら、確定情報に合わせて両方を更新する。
+ *  ページの「見た目・キャッチコピー・各セクションの本文」は AI Studio で編集し
+ *  `scripts/sync-from-aistudio.sh` で取り込む。
+ *
+ *  一方この site.ts が「正」なのは:
+ *   - <head> のメタ情報 / OGP（seo）
+ *   - JSON-LD（org）
+ *   - **会社概要セクションの表**（company）… CompanySection.tsx はこの値を描画するだけ
+ *
+ *  会社概要を直すときはここだけ触ればよい（AI Studio 同期でも上書きされない）。
  */
 
 export const site = {
@@ -32,10 +37,29 @@ export const site = {
     ],
   },
 
-  /** JSON-LD 用（CompanySection.tsx と揃える。★所在地の詳細・電話は確定待ち） */
+  /** JSON-LD（Organization）用 */
   org: {
     representativeName: "栗山 元貴",
     email: "info@hitono-wa.com",
     addressRegion: "東京都",
+  },
+
+  /**
+   * 会社概要セクションの表。
+   * 開業準備中なので確定した事実だけを載せる方針。
+   *  - `businessLines`: 事業内容の箇条書き（確定・正確）
+   *  - 主要取引先などは実績が出るまで載せない
+   *  - 所在地は 1号拠点が本契約になったら「東京都大田区…」へ更新
+   */
+  company: {
+    legalLine: "合同会社ひとのわ（hitonowa LLC）",
+    representativeLine: "代表社員　栗山 元貴（Motoki Kuriyama）",
+    businessLines: [
+      "法人向けケータリング及びオードブルの企画・調理・提供",
+      "オリジナル食品・加工品・冷凍商品の企画開発・製造",
+      "飲食及び食品関連の新規事業開発・業務設計・運営支援",
+    ],
+    location: "東京都",
+    email: "info@hitono-wa.com",
   },
 } as const;

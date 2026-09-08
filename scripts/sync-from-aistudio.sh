@@ -45,8 +45,11 @@ fi
 [ -f "$SRC/src/assets/images/hitonowa_dining_scene_1787299553443.jpg" ] && \
   cp "$SRC/src/assets/images/hitonowa_dining_scene_1787299553443.jpg" "$ROOT/public/images/og.jpg" || true
 
-echo "▶ DiningTableIllustration を next/image 版に差し替え"
+echo "▶ ローカル管理のコンポーネントを patch 版で上書き"
+#   DiningTableIllustration … next/image 版（basePath 対応）
+#   CompanySection          … 表の中身は src/config/site.ts が正
 cp "$ROOT/scripts/patches/DiningTableIllustration.tsx" "$ROOT/src/components/DiningTableIllustration.tsx"
+cp "$ROOT/scripts/patches/CompanySection.tsx" "$ROOT/src/components/CompanySection.tsx"
 
 echo "▶ App.tsx -> src/app/page.tsx"
 {
@@ -60,17 +63,15 @@ echo "▶ App.tsx -> src/app/page.tsx"
 echo "▶ index.css -> src/app/globals.css"
 cp "$ROOT/scripts/patches/globals.css" "$ROOT/src/app/globals.css"
 
-echo "▶ 会社情報の確定値に置換（AI Studio 側が古い値のままの場合の保険）"
-#   AI Studio 側で正しい値に直してあれば、下の sed は何もマッチせず no-op。
+echo "▶ AI Studio 側が古い値のままの箇所を確定値へ置換（保険・正しければ no-op）"
+#   Philosophy 署名・Contact 完了メッセージなど、まだ AI Studio 管理のファイル向け。
+#   会社概要（CompanySection）は上で patch 上書き済みなので対象外。
 sed -i \
   -e 's/小川 裕/栗山 元貴/g' \
   -e 's/Yutaka Ogawa/Motoki Kuriyama/g' \
   -e 's/y\.ogawa@hitono-wa\.com/info@hitono-wa.com/g' \
   -e 's/担当の小川より/担当より/g' \
-  -e 's/東京都（キッチンアトリエ・オフィス）/東京都/g' \
   "$ROOT"/src/components/*.tsx
-#   電話番号（未定）: 表示行・文言を除去
-sed -i '/Tel: 090-3515-3864/d' "$ROOT/src/components/CompanySection.tsx"
 sed -i '/お急ぎの場合はお電話（090-3515-3864）でも承っております。/d' "$ROOT/src/components/ContactSection.tsx"
 
 echo
