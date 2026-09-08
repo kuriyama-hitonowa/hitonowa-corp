@@ -42,19 +42,6 @@ export const PhilosophySection: React.FC = () => {
             かけがえのない起点として大切にし続けます。
           </p>
         </div>
-
-        {/* Signature / Representative */}
-        <div className="mt-16 sm:mt-24 inline-block text-center">
-          <div className="text-xs text-[#8A8A92] font-sans-jp tracking-widest uppercase mb-1">
-            合同会社ひとのわ 代表社員
-          </div>
-          <div className="font-mincho text-lg sm:text-xl text-[#1A1A1C] tracking-widest font-normal">
-            栗山 元貴
-          </div>
-          <div className="text-[11px] font-serif text-[#9A9AA2] tracking-widest mt-0.5">
-            Motoki Kuriyama
-          </div>
-        </div>
       </div>
     </section>
   );

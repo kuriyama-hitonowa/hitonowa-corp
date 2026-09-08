@@ -74,6 +74,11 @@ sed -i \
   "$ROOT"/src/components/*.tsx
 sed -i '/お急ぎの場合はお電話（090-3515-3864）でも承っております。/d' "$ROOT/src/components/ContactSection.tsx"
 
+echo "▶ Philosophy の代表署名ブロックを除去（サイト方針で非表示）"
+#   {/* Signature / Representative */} コメント〜ラッパー div の閉じ（</div> 4個）まで削除。
+perl -0777 -pi -e 's{\n\s*\{/\* Signature / Representative \*/\}(?:.*?</div>){4}}{}s' \
+  "$ROOT/src/components/PhilosophySection.tsx"
+
 echo
 echo "✅ 完了。次に:"
 echo "   git diff --stat"
