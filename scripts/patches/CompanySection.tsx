@@ -24,7 +24,7 @@ export function CompanySection() {
         </ul>
       ),
     },
-    { label: "所在地", value: site.company.location },
+    { label: site.company.locationLabel, value: site.company.location },
     {
       label: "お問い合わせ",
       value: <div>Email: {site.company.email}</div>,

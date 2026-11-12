@@ -20,6 +20,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Next.js 16 App Router / `output: "export"`（静的サイト） / Tailwind v4 / TypeScript / Turbopack
 - Google AI Studio で作成したプロトタイプ（Vite + React）を移植したもの
 - 1ページ（LP）構成。`src/app/page.tsx` が全セクションを組み立てる
+- `src/sections/` … 展開ブランド（BrandsSection）。AI Studio 同期の対象外のローカル管理。sync が page.tsx に差し込む。ブランドの中身は site.ts の `brands`
 - `src/config/site.ts` … **差し替え前提の値の唯一の設定元**。屋号表記・代表者・連絡先・
   会社概要・ナビ・SEO をここで一元管理。`isPlaceholder: true` は「一部ダミー・後で差し替え」の暫定値。
 - アニメーションは `motion`（旧 framer-motion）、アイコンは `lucide-react` と自作SVG（`BusinessIcons.tsx`）

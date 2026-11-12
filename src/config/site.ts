@@ -41,6 +41,8 @@ export const site = {
   org: {
     email: "info@hitono-wa.com",
     addressRegion: "東京都",
+    addressLocality: "大田区",
+    streetAddress: "南六郷2丁目25番11号 出川ビル1F",
   },
 
   /**
@@ -48,7 +50,7 @@ export const site = {
    * 開業準備中なので確定した事実だけを載せる方針。
    *  - `businessLines`: 事業内容の箇条書き（確定・正確）
    *  - 主要取引先などは実績が出るまで載せない
-   *  - 所在地は 1号拠点が本契約になったら「東京都大田区…」へ更新
+   *  - 所在地の行は「セントラルキッチン」（南六郷の製造拠点）。本店の登記住所（千鳥）は載せない
    */
   company: {
     legalLine: "合同会社ひとのわ（hitonowa LLC）",
@@ -57,7 +59,25 @@ export const site = {
       "オリジナル食品・加工品・冷凍商品の企画開発・製造",
       "飲食及び食品関連の新規事業開発・業務設計・運営支援",
     ],
-    location: "東京都",
+    locationLabel: "セントラルキッチン",
+    location: "東京都大田区南六郷2丁目25番11号 出川ビル1F",
     email: "info@hitono-wa.com",
   },
+
+  /**
+   * 展開ブランド（src/sections/BrandsSection.tsx が描画）。増えたらここに足す。
+   * ロゴは src/assets/brands/ に置き、BrandsSection.tsx 側で import して id に対応づける。
+   */
+  brands: [
+    {
+      id: "anello",
+      nameJa: "西麻布 鮨とイタリアン",
+      nameLatin: "Anello",
+      category: "ケータリング・オードブル",
+      description:
+        "本まぐろ入りの握り鮨、アツアツのマルゲリータ、彩りのイタリアンを、ひとり分ずつ小分けにして。オフィスや集まりの席へお届けする、鮨とイタリアンのブランドです。",
+      /** ブランドサイト公開後に URL を入れると「公式サイトを見る」リンクが出る */
+      url: "",
+    },
+  ],
 } as const;

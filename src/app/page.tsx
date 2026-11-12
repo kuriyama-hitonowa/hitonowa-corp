@@ -5,6 +5,7 @@ import { Navbar } from '@/components/Navbar';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
 import { BusinessOverviewSection } from '@/components/BusinessOverviewSection';
+import { BrandsSection } from '@/sections/BrandsSection';
 import { CateringSection } from '@/components/CateringSection';
 import { ProductDevSection } from '@/components/ProductDevSection';
 import { BusinessDevSection } from '@/components/BusinessDevSection';
@@ -29,6 +30,9 @@ export default function Home() {
 
         {/* 03 BUSINESS (Overview of 3 Pillars) */}
         <BusinessOverviewSection />
+
+        {/* BRANDS (展開ブランド: ローカル管理・src/sections) */}
+        <BrandsSection />
 
         {/* 04 CATERING */}
         <CateringSection />

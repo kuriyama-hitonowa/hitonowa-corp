@@ -13,8 +13,14 @@ export function OrganizationJsonLd() {
     address: {
       "@type": "PostalAddress",
       addressRegion: site.org.addressRegion,
+      addressLocality: site.org.addressLocality,
+      streetAddress: site.org.streetAddress,
       addressCountry: "JP",
     },
+    makesOffer: site.brands.map((b) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: `${b.nameJa} ${b.nameLatin}` },
+    })),
     knowsAbout: [
       "法人ケータリング",
       "オードブル",

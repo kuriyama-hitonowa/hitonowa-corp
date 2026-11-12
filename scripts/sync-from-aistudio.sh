@@ -60,6 +60,14 @@ echo "▶ App.tsx -> src/app/page.tsx"
       "$SRC/src/App.tsx"
 } > "$ROOT/src/app/page.tsx"
 
+echo "▶ 展開ブランド（src/sections/BrandsSection.tsx）を page.tsx に差し込む"
+#   BusinessOverviewSection の直後に入れる。AI Studio 側に無いローカル管理のセクション。
+perl -0777 -pi -e '
+  s{(import \{ BusinessOverviewSection \}[^\n]*\n)}{$1import { BrandsSection } from \x27\@/sections/BrandsSection\x27;\n};
+  s{(<BusinessOverviewSection />\n)}{$1\n        {/* BRANDS (展開ブランド: ローカル管理・src/sections) */}\n        <BrandsSection />\n};
+' "$ROOT/src/app/page.tsx"
+grep -q "BrandsSection />" "$ROOT/src/app/page.tsx" || echo "   ⚠ BrandsSection を差し込めませんでした。page.tsx を手動確認"
+
 echo "▶ index.css -> src/app/globals.css"
 cp "$ROOT/scripts/patches/globals.css" "$ROOT/src/app/globals.css"
 
