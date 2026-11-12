@@ -40,6 +40,7 @@ export const site = {
   /** JSON-LD（Organization）用 */
   org: {
     email: "info@hitono-wa.com",
+    postalCode: "144-0045",
     addressRegion: "東京都",
     addressLocality: "大田区",
     streetAddress: "南六郷2丁目25番11号 出川ビル1F",
@@ -60,7 +61,7 @@ export const site = {
       "飲食及び食品関連の新規事業開発・業務設計・運営支援",
     ],
     locationLabel: "セントラルキッチン",
-    location: "東京都大田区南六郷2丁目25番11号 出川ビル1F",
+    location: "〒144-0045 東京都大田区南六郷2丁目25番11号 出川ビル1F",
     email: "info@hitono-wa.com",
   },
 

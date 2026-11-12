@@ -12,6 +12,7 @@ export function OrganizationJsonLd() {
     description: site.seo.description,
     address: {
       "@type": "PostalAddress",
+      postalCode: site.org.postalCode,
       addressRegion: site.org.addressRegion,
       addressLocality: site.org.addressLocality,
       streetAddress: site.org.streetAddress,
