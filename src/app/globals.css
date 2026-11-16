@@ -41,6 +41,9 @@
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
+  /* 日本語の改行を文節で区切り、1〜2文字だけ次の行に落ちるのを防ぐ（未対応ブラウザは pretty/balance で代替） */
+  p, li, dd, h1, h2, h3, h4 { word-break: auto-phrase; line-break: strict; text-wrap: pretty; }
+  h1, h2, h3 { text-wrap: balance; }
   input, select, textarea { font-size: max(16px, 1em); }
   ::selection { background: rgba(212, 154, 20, 0.28); color: #000; }
 }
@@ -127,6 +130,13 @@
   transition: background 0.4s var(--ease), color 0.4s var(--ease);
 }
 .btn-line:hover { background: var(--ink); border-color: var(--ink); color: var(--ivory); }
+.btn-gold, .btn-line { white-space: nowrap; }
+@media (max-width: 640px) {
+  .btn-gold { padding: 17px 28px; letter-spacing: 0.18em; }
+  .btn-line { padding: 16px 28px; letter-spacing: 0.18em; }
+  /* ヒーローの線画にボタンが重ならないよう、地色を敷く */
+  .hero-actions .btn-line { background: rgba(251, 250, 246, 0.92); }
+}
 .arr { display: inline-block; width: 34px; height: 1px; background: currentColor; position: relative; }
 .arr::after { content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
 
