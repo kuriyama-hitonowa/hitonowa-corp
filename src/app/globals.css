@@ -118,7 +118,6 @@ body::after {
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
 .logo b { font-family: var(--font-cormorant), serif; font-weight: 600; font-size: 29px; letter-spacing: -0.01em; color: var(--ink); }
-.logo b span { color: var(--brass-hi); font-style: italic; }
 .logo small { margin-top: 7px; font-size: 9px; letter-spacing: 0.36em; color: var(--t-2); font-family: var(--font-shippori), serif; }
 .nav ul { display: none; gap: 40px; align-items: center; }
 .nav ul a { font-family: var(--font-cormorant), serif; font-weight: 600; font-size: 14px; letter-spacing: 0.28em; color: var(--ink); text-decoration: none; position: relative; padding: 6px 0; }
@@ -146,8 +145,9 @@ body::after {
 .hero-in { position: relative; z-index: 3; width: 100%; padding-top: 24vh; padding-bottom: clamp(56px, 10vh, 104px); }
 .hero-corp { font-family: var(--font-shippori), serif; font-size: 13px; letter-spacing: 0.5em; color: var(--brass); display: flex; align-items: center; gap: 18px; }
 .hero-corp::before { content: ""; width: 44px; height: 1px; background: var(--brass); }
-.hero-word { font-family: var(--font-cormorant), serif; font-weight: 500; font-size: clamp(76px, 12.4vw, 210px); line-height: 0.86; letter-spacing: -0.035em; margin: 26px 0 0 -0.04em; color: var(--ink); }
-.hero-word em { font-style: italic; color: var(--brass-hi); }
+.hero-word { font-family: var(--font-cormorant), serif; font-weight: 500; font-size: clamp(76px, 16.2vw, 276px); line-height: 0.84; letter-spacing: -0.04em; margin: 22px 0 0 -0.04em; color: var(--ink); }
+.hero-word em, .logo b span, .foot-word em { font-style: italic; font-weight: 500; background: linear-gradient(100deg, #8a6410 0%, #c9951d 38%, #9a7118 62%, #d9a62b 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; padding-right: 0.06em; }
+.foot-word em { background: linear-gradient(100deg, #b88a2a 0%, #f3d98f 40%, #d6a93c 70%, #ecc870 100%); -webkit-background-clip: text; background-clip: text; }
 .hero-sub { margin-top: clamp(30px, 4vw, 52px); max-width: 28em; font-family: var(--font-shippori), serif; font-weight: 500; font-size: clamp(16px, 1.55vw, 21px); line-height: 2.1; letter-spacing: 0.1em; color: var(--ink); }
 .hero-actions { margin-top: clamp(32px, 4vw, 52px); display: flex; flex-wrap: wrap; gap: 20px 36px; align-items: center; }
 .hero-v { position: absolute; z-index: 3; right: var(--gutter); top: clamp(100px, 16vh, 150px); writing-mode: vertical-rl;
@@ -169,7 +169,7 @@ body::after {
   .hero { justify-content: flex-start; }
   .hero-in { padding-top: 24vh; padding-bottom: 8px; }
   .hero-art { position: relative; right: auto; bottom: auto; width: 128%; margin: 28px 0 0 -14%; }
-  .hero-word { font-size: clamp(76px, 20vw, 140px); }
+  .hero-word { font-size: clamp(76px, 21vw, 150px); }
   .hero-v { font-size: 19px; letter-spacing: 0.3em; top: 92px; }
 }
 
@@ -248,7 +248,6 @@ body::after {
 .foot { background: var(--ink); color: var(--t-light); padding: clamp(72px, 9vw, 120px) 0 36px; }
 .foot-top { display: grid; gap: 52px; padding-bottom: 64px; border-bottom: 1px solid var(--hair-light); }
 .foot-word { font-family: var(--font-cormorant), serif; font-weight: 500; font-size: clamp(44px, 6vw, 84px); line-height: 1; letter-spacing: -0.02em; color: var(--t-light); }
-.foot-word em { font-style: italic; color: var(--brass-dk); }
 .foot-tag { margin-top: 18px; font-size: 12px; letter-spacing: 0.3em; color: var(--t-light-2); font-family: var(--font-shippori), serif; }
 .foot-nav { display: flex; flex-wrap: wrap; gap: 14px 36px; align-content: flex-start; }
 .foot-nav a { font-family: var(--font-cormorant), serif; font-weight: 600; font-size: 14px; letter-spacing: 0.28em; color: var(--t-light); text-decoration: none; opacity: 0.8; transition: opacity 0.3s, color 0.3s; }
