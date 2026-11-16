@@ -60,6 +60,7 @@ export const site = {
       "オリジナル食品・加工品・冷凍商品の企画開発・製造",
       "飲食及び食品関連の新規事業開発・業務設計・運営支援",
     ],
+    corporateNumber: "2010803005952",
     locationLabel: "セントラルキッチン",
     location: "〒144-0045 東京都大田区南六郷2丁目25番11号 出川ビル1F",
     email: "info@hitono-wa.com",
