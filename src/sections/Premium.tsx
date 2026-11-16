@@ -118,9 +118,11 @@ function Opening() {
   return (
     <div ref={ref} className="open" aria-hidden="true">
       <svg width="148" height="148" viewBox="0 0 148 148">
-        <circle cx="74" cy="74" r="60" fill="none" stroke="#c9a45c" strokeWidth="1.2" strokeLinecap="round" transform="rotate(-90 74 74)" />
+        <circle cx="74" cy="74" r="60" fill="none" stroke="#8a6410" strokeWidth="1.2" strokeLinecap="round" transform="rotate(-90 74 74)" />
       </svg>
-      <span className="ow foil">hitonowa</span>
+      <span className="ow">
+        hitono<b>wa</b>
+      </span>
     </div>
   );
 }
@@ -194,8 +196,8 @@ function Hero() {
         <div className="wrap">
           <div className="hero-kicker">Tokyo · Catering / Product / Business</div>
           <h1 className="hero-word">
-            <span className="foil">hitono</span>
-            <em className="foil">wa</em>
+            <span>hitono</span>
+            <em className="foil-lo">wa</em>
           </h1>
           <div className="hero-corp">合同会社ひとのわ</div>
           <p className="hero-sub">
@@ -220,32 +222,13 @@ function Hero() {
   );
 }
 
-function Marquee() {
-  const words = ["Catering", "Product Development", "Business Development", "Anello", "hitonowa"];
-  const row = (k: string) =>
-    words.map((w, i) => (
-      <span key={`${k}${i}`} className="contents">
-        <span className="foil">{w}</span>
-        <i />
-      </span>
-    ));
-  return (
-    <div className="marq" aria-hidden="true">
-      <div className="marq-track">
-        {row("a")}
-        {row("b")}
-      </div>
-    </div>
-  );
-}
-
 function About() {
   return (
-    <section className="sec sec-sand" id="about">
+    <section className="sec sec-light" id="about">
       <div className="wrap">
         <div className="sh">
           <span className="label">About</span>
-          <h2 className="en foil-lo">
+          <h2 className="en">
             About <i>us</i>
           </h2>
           <p className="ja">ひとのわについて</p>
@@ -276,11 +259,11 @@ function About() {
 
 function Business() {
   return (
-    <section className="sec sec-ink" id="business">
+    <section className="sec sec-paper" id="business">
       <div className="wrap">
         <div className="sh">
           <span className="label">Business</span>
-          <h2 className="en foil">
+          <h2 className="en">
             Three <i>Pillars</i>
           </h2>
           <p className="ja">3つの事業</p>
@@ -314,32 +297,34 @@ function Business() {
 function Brands() {
   const b = site.brands[0];
   return (
-    <section className="sec brand" id="brands">
+    <section className="sec sec-light" id="brands">
       <div className="wrap">
-        <div className="brand-grid">
+        <div className="sh">
+          <span className="label">Brands</span>
+          <h2 className="en">
+            Our <i>Brand</i>
+          </h2>
+          <p className="ja">展開ブランド</p>
+          <p className="body-txt">ひとのわが手がける、食のブランド</p>
+        </div>
+        <div className="brand-grid rv">
+          <div className="brand-logo">
+            <Image src={anelloLogo} alt={`${b.nameJa} ${b.nameLatin} のロゴ`} sizes="(min-width: 960px) 340px, 70vw" />
+          </div>
           <div>
-            <span className="label" style={{ color: "var(--gold-hi)" }}>
-              Brands
-            </span>
-            <p className="f-min" style={{ marginTop: 22, fontSize: 15, letterSpacing: "0.3em", color: "#e3d2bd" }}>
-              展開ブランド
-            </p>
-            <p className="brand-name">{b.nameJa}</p>
-            <h2 className="brand-latin foil">{b.nameLatin}</h2>
             <p className="brand-cat">{b.category}</p>
+            <p className="brand-name">{b.nameJa}</p>
+            <h3 className="brand-latin foil-lo">{b.nameLatin}</h3>
             <p className="brand-desc">{b.description}</p>
-            <div style={{ marginTop: 38 }}>
+            <div style={{ marginTop: 34 }}>
               {b.url ? (
                 <a className="btn-line" href={b.url} target="_blank" rel="noopener noreferrer">
                   公式サイトを見る <Arrow />
                 </a>
               ) : (
-                <p style={{ fontSize: 12, letterSpacing: "0.2em", color: "var(--gold-hi)" }}>ブランドサイトは準備中です</p>
+                <p style={{ fontSize: 12, letterSpacing: "0.2em", color: "var(--gold-lo)" }}>ブランドサイトは準備中です</p>
               )}
             </div>
-          </div>
-          <div className="brand-card rv">
-            <Image src={anelloLogo} alt={`${b.nameJa} ${b.nameLatin} のロゴ`} sizes="(min-width: 960px) 380px, 70vw" />
           </div>
         </div>
       </div>
@@ -349,11 +334,11 @@ function Brands() {
 
 function Catering() {
   return (
-    <section className="sec sec-sand-2" id="catering">
+    <section className="sec sec-paper" id="catering">
       <div className="wrap">
         <div className="sh">
           <span className="label">Catering</span>
-          <h2 className="en foil-lo">
+          <h2 className="en">
             <i>Catering</i>
           </h2>
           <p className="ja">法人向けケータリング・オードブル</p>
@@ -412,11 +397,11 @@ function Catering() {
 
 function Product() {
   return (
-    <section className="sec sec-ink" id="product">
+    <section className="sec sec-light" id="product">
       <div className="wrap">
         <div className="sh">
           <span className="label">Product Development</span>
-          <h2 className="en foil">
+          <h2 className="en">
             <i>Product</i>
           </h2>
           <p className="ja">商品開発・製造</p>
@@ -441,7 +426,7 @@ function Product() {
             </div>
           ))}
         </div>
-        <div className="feats-dark">
+        <div className="feats">
           {PROD_FEATS.map((f) => (
             <div className="feat" key={f.t}>
               <h4>{f.t}</h4>
@@ -456,11 +441,11 @@ function Product() {
 
 function BusinessDev() {
   return (
-    <section className="sec sec-sand" id="business-dev">
+    <section className="sec sec-light" id="business-dev">
       <div className="wrap">
         <div className="sh">
           <span className="label">Business Development</span>
-          <h2 className="en foil-lo">
+          <h2 className="en">
             <i>Business</i>
           </h2>
           <p className="ja">事業開発・支援</p>
@@ -536,11 +521,11 @@ function Philosophy() {
 function Company() {
   const c = site.company;
   return (
-    <section className="sec sec-sand" id="company">
+    <section className="sec sec-paper" id="company">
       <div className="wrap">
         <div className="sh">
           <span className="label">Company</span>
-          <h2 className="en foil-lo">
+          <h2 className="en">
             <i>Company</i>
           </h2>
           <p className="ja">会社概要</p>
@@ -593,12 +578,12 @@ function Contact() {
   };
 
   return (
-    <section className="sec sec-ink" id="contact">
+    <section className="sec sec-paper" id="contact">
       <div className="wrap">
         <div className="ct">
           <div>
             <span className="label">Contact</span>
-            <h2 className="phil-q foil" style={{ fontSize: "clamp(34px,3.9vw,56px)", marginTop: 26 }}>
+            <h2 className="phil-q foil-lo" style={{ fontSize: "clamp(34px,3.9vw,56px)", marginTop: 26 }}>
               「一緒に
               <br />
               つくる。」
@@ -701,7 +686,6 @@ export default function PremiumHome() {
       <Nav />
       <main>
         <Hero />
-        <Marquee />
         <About />
         <Business />
         <Brands />
