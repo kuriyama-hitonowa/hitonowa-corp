@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Shippori_Mincho, Noto_Sans_JP, Cormorant_Garamond } from "next/font/google";
+import { Shippori_Mincho, Noto_Sans_JP, Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { site } from "@/config/site";
 import { OrganizationJsonLd } from "@/lib/JsonLd";
@@ -14,6 +14,13 @@ const shippori = Shippori_Mincho({
 const notoJp = Noto_Sans_JP({
   variable: "--font-noto-jp",
   weight: ["300", "400", "500", "600"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  weight: ["500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -55,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${shippori.variable} ${notoJp.variable} ${cormorant.variable}`}
+      className={`${shippori.variable} ${notoJp.variable} ${cormorant.variable} ${jakarta.variable}`}
     >
       <body>
         <OrganizationJsonLd />
