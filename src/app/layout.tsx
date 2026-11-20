@@ -54,6 +54,7 @@ export const metadata: Metadata = {
     images: [site.seo.ogImage],
   },
   robots: { index: true, follow: true },
+  verification: { google: "Md9VaEY5Y92_1uireXqPvLgUz4c7dMAAKWKl7bidZxw" },
 };
 
 export default function RootLayout({
