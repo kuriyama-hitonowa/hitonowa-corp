@@ -284,7 +284,8 @@ function Company() {
 }
 
 function Contact() {
-  const [category, setCategory] = useState(CATEGORIES[0]);
+  const [category, setCategory] = useState(CATEGORIES[1]);
+  const isCatering = category === CATEGORIES[0];
   const [f, setF] = useState({ company: "", name: "", email: "", phone: "", message: "" });
   const [sent, setSent] = useState(false);
   const set = (k: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setF({ ...f, [k]: e.target.value });
@@ -321,7 +322,7 @@ function Contact() {
         </div>
         <div className="ct">
           <div>
-            <p className="body-txt">ケータリング、商品の開発、新しい事業の構想など。原則2営業日以内にご返信します。</p>
+            <p className="body-txt">商品の開発、新しい事業の構想、取材・協業など。原則2営業日以内にご返信します。ケータリングのご注文・ご相談は、専用サイトの Anello で承っています。</p>
             <a className="ct-mail" href={`mailto:${site.company.email}`}>
               {site.company.email}
             </a>
@@ -337,6 +338,20 @@ function Contact() {
                 ))}
               </div>
             </div>
+            {isCatering && (
+              <div className="fld" role="note">
+                <p className="body-txt">
+                  オードブルなどのケータリングのご注文・ご相談は、専用サイト「西麻布 寿司とイタリアン Anello」で承っています。コース・料金のご案内と、お見積りもこちらから。
+                </p>
+                <div className="form-foot">
+                  <a className="btn" href="https://nishiazabu-anello.com/" target="_blank" rel="noopener noreferrer">
+                    Anelloのサイトへ <Arrow />
+                  </a>
+                </div>
+              </div>
+            )}
+            {!isCatering && (
+              <>
             <div className="fld-row two">
               <div className="fld">
                 <label htmlFor="c-company">貴社名・組織名</label>
@@ -367,6 +382,8 @@ function Contact() {
                 メールで送る <Arrow />
               </button>
             </div>
+              </>
+            )}
             {sent && (
               <p className="sent" role="status">
                 メールアプリが開きます。内容をご確認のうえ、送信してください。開かない場合は、{site.company.email} まで直接お送りください。
